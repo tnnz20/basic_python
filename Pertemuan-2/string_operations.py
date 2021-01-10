@@ -1,4 +1,4 @@
-a = "Hello world"
+a = "Hello World"
 
 #akan memprint char dari awal
 print(a[0])

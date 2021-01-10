@@ -1,5 +1,5 @@
-a = "Hello"
-b = "World"
+a = "Hello World"
+b = "Tahun"
 c = 2021
 d = a + " " + b , c
 

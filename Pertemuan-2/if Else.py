@@ -13,7 +13,7 @@ else:
 
 print()
 
-if (b < a) | (c > a):
+if (b < a) & (c > a):
     print("Kondisi benar")
 else:
     print("kondisi salah")
