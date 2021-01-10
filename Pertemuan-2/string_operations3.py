@@ -1,3 +1,3 @@
 age = 25
 
-print("my age is"{} format:age)
+print("My age is {}".format(age))
