@@ -1,5 +1,5 @@
 name = input()
-angka = int(input())
+angka = float(input())
 
 #untuk menggabungkan string gunakan "+"
 print("Your name is : " + name)

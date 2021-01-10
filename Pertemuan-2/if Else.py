@@ -2,6 +2,8 @@ a = 220
 b = 33
 c = 55
 
+# operator 
+# > , < , != , >= , <= , and , or , not 
 if b > a:
     print("b lebih besar dari a")
 elif b == a:
@@ -11,7 +13,7 @@ else:
 
 print()
 
-if (b < a) & (c > a):
+if (b < a) | (c > a):
     print("Kondisi benar")
 else:
     print("kondisi salah")

@@ -1,7 +1,7 @@
 mylist = []
-mylist.append("test")
-mylist.append(123)
-mylist.append("ga")
+mylist.append("List")
+mylist.append(1235)
+mylist.append("Angka")
 
 
 for x in mylist:

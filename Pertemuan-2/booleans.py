@@ -7,8 +7,8 @@ print (10 <9)       #false
 a = 10
 b = 9
 print()
-if b > a:
-    print("b lebih besar dari a")
+if b != a:
+    print("b bukan a")
 else:
-    print("b lebih kecil dari a")
+    print("b sama a")
 

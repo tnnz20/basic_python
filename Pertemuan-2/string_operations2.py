@@ -1,6 +1,6 @@
 a = "Hello"
 b = "World"
-c = 123
+c = 2021
 d = a + " " + b , c
 
 print(a + " " + b , c)
