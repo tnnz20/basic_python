@@ -1,15 +1,44 @@
-import smtplib #import library smtplib
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
 
-sender_email ="sulthan.a2.pilkom@gmail.com" #email pengirim
-rec_email = "kaitora200@gmail.com" #email penerima
-password = input(str("Masukan Password :")) #input password
-message = "Tugas Jarkom MAIL" #pesan yang akan diterima 
+#parsing file txt untuk digunakan dalam python
+file = open('Final-Project/email.txt', 'r').read()
+flx = file.split()
 
-server = smtplib.SMTP('smtp.gmail.com', 587) #menkonek ke smtplib dengan email yang tersedia 
+#deklarasi inputan untuk mail
+sender_email = "sulthan.a2.pilkom@gmail.com"
+rec_email = flx
+body = "Ini tugas terakhir\ncoba"
+
+#melampirkan suatu file
+part = MIMEBase('application', "octet-stream")
+part.set_payload(open("Final-Project/pilar.jpg", "rb").read())
+encoders.encode_base64(part)
+
+part.add_header('Content-Disposition', 'attachment; filename="Final-Project/pilar.jpg"')
+
+#draf mail
+msg = MIMEMultipart()
+msg['From'] = sender_email
+msg['To'] = ', '.join(flx)
+msg['Subject'] = 'Final Project'
+
+#input text dan lampiran ke mail
+msg.attach(MIMEText(body, 'plain'))
+msg.attach(part)
+text = msg.as_string()
+
+#login ke server smtp
+server = smtplib.SMTP('smtp.gmail.com', 587)
 server.starttls()
-server.login(sender_email, password) #proses login
-print("Login Berhasil")
-server.sendmail(sender_email, rec_email, message)
-print("Email berhasil dikirim", rec_email)
 
-#smtplib adalah simple Mail Transfer Protokol untuk menangani proses pengiriman dan routing email antar mail server
+#login user
+password = input(str("Masukan Password :"))
+server.login(sender_email, password)
+#kirim mail
+server.sendmail(sender_email, rec_email, text)
+#keluar dari server
+server.quit()
